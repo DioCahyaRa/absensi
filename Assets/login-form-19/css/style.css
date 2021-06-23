@@ -8137,7 +8137,8 @@ body {
   font-size: 14px;
   line-height: 1.8;
   font-weight: normal;
-  background: #fbd1b7;
+  background-image: url("../../Image/Icon/ship.jpg");
+  background-size: cover;
   color: gray; }
 
 a {
