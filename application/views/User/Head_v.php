@@ -24,6 +24,12 @@
                 document.write('<link rel="stylesheet" id="theme-style" href="css/app.css">');
             }
         </script> -->
+
+        <!-- Datatables -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.6.0/dt-1.10.25/b-1.7.1/b-html5-1.7.1/b-print-1.7.1/date-1.1.0/fh-3.1.9/r-2.2.9/sp-1.3.0/sl-1.3.3/datatables.min.css"/>
+        <!-- Tutup Datatables -->
+        
     </head>
     <body>
         <div class="main-wrapper">
