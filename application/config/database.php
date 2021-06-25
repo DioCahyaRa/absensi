@@ -77,11 +77,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-<<<<<<< HEAD
 	'password' => 'root',
-=======
-	'password' => '',
->>>>>>> abb444324fa908b1e3ddafa14616e35ef20617ad
 	'database' => 'absensi',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
