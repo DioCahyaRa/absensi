@@ -8,8 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
+<<<<<<< HEAD
         <link rel="stylesheet" href="<?= base_url('Assets/modular-admin/dist2/')?>css/vendor.css">
         <link rel="stylesheet" href="<?= base_url('Assets/modular-admin/dist2/')?>css/app.css">
+=======
+        <link rel="stylesheet" href="<?= base_url('Assets/modular-admin/dist/')?>css/vendor.css">
+        <link rel="stylesheet" href="<?= base_url('Assets/modular-admin/dist/')?>css/app.css">
+>>>>>>> abb444324fa908b1e3ddafa14616e35ef20617ad
         <!-- Theme initialization -->
         <!-- <script>
             var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :

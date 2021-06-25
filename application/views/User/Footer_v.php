@@ -24,8 +24,13 @@
                 <div class="color-secondary"></div>
             </div>
         </div>
+<<<<<<< HEAD
         <script src="<?= base_url('Assets/modular-admin/dist2/')?>js/vendor.js"></script>
         <script src="<?= base_url('Assets/modular-admin/dist2/')?>js/app.js"></script>
+=======
+        <script src="<?= base_url('Assets/modular-admin/dist/')?>js/vendor.js"></script>
+        <script src="<?= base_url('Assets/modular-admin/dist/')?>js/app.js"></script>
+>>>>>>> abb444324fa908b1e3ddafa14616e35ef20617ad
 
         <!-- DataTables -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
