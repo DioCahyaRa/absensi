@@ -30,6 +30,7 @@
                 unset($_SESSION['msg']);
             }
         ?>
+		
 	<section class="ftco-section">
 		<div class="container">
 
