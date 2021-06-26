@@ -72,11 +72,6 @@
 					</div>
 					<p><?= form_error('password', '<p class="text-danger pl-1">', '</p>');?></p>
 
-					<span>Tanggal Masuk</span>
-		      		<div class="form-group">
-		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-calendar"></span></div>
-		      			<input type="date" class="form-control" placeholder="Tanggal Masuk" name="tgl_masuk" required>
-		      		</div>
 				
 	            <div class="form-group">
 	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Sign Up</button>

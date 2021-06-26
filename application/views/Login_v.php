@@ -24,6 +24,12 @@
                 unset($_SESSION['msg-succcess']);
             }
         ?>
+		<?php echo $this->session->flashdata('msg');?>
+     	<?php
+            if(isset($_SESSION['msg'])){
+                unset($_SESSION['msg']);
+            }
+        ?>
 	<section class="ftco-section">
 		<div class="container">
 
@@ -33,15 +39,17 @@
 		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(<?= base_url('Assets/Image/Icon/icon_nahkoda.png')?>);"></div>
 		      	<h3 class="text-center mb-0">LOGIN</h3>
 		      	<p class="text-center">Sign in by entering the information below</p>
-						<form action="#" class="login-form">
+
+				<form action="<?= base_url('Login_c/Act_Login')?>" class="login-form" method="post">
 		      		<div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input type="text" class="form-control" placeholder="Username" required>
+		      			<input type="text" class="form-control" placeholder="Nomor Induk Taruna" name="nit" required>
 		      		</div>
-	            <div class="form-group">
-	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-	              <input type="password" class="form-control" placeholder="Password" required>
-	            </div>
+
+					<div class="form-group">
+						<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+						<input type="password" class="form-control" placeholder="Password" name="password" required>
+					</div>
 
 	            <div class="form-group">
 	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Login</button>

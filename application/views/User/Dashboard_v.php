@@ -1,3 +1,9 @@
+        <?php echo $this->session->flashdata('msg');?>
+     	<?php
+            if(isset($_SESSION['msg'])){
+                unset($_SESSION['msg']);
+            }
+        ?>
                 <article class="content item-editor-page">
                     <div class="title-block">
                         <h3 class="title"> Dashboard Absensi <span class="sparkline bar" data-type="bar"></span>
