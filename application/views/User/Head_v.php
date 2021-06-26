@@ -61,7 +61,7 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-gear icon"></i> Settings </a> -->
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="login.html">
+                                    <a class="dropdown-item" href="<?= base_url('Login_c/Logout');?>">
                                         <i class="fa fa-power-off icon"></i> Logout </a>
                                 </div>
                             </li>
@@ -79,20 +79,20 @@
                         </div>
                         <nav class="menu">
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                                <li>
-                                    <a href="#">
+                                <li <?php if($title == 'Dashboard'):?>class="active"<?php endif;?>>
+                                    <a href="<?= base_url('User/Dashboard_c');?>">
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
-                                <li>
-                                    <a href="#">
+                                <li <?php if($title == 'Absensi'):?>class="active"<?php endif;?>>
+                                    <a href="<?= base_url('User/Absen_c');?>">
                                         <i class="fa fa-pencil-square-o"></i> Absen </a>
                                 </li>
-                                <li>
-                                    <a href="#">
+                                <li <?php if($title == 'Profile'):?>class="active"<?php endif;?>>
+                                    <a href="<?= base_url('User/Profile_c');?>">
                                         <i class="fa fa-user"></i> Profil </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?= base_url('Login_c/Logout');?>">
                                         <i class="fa fa-power-off icon"></i> Logout </a>
                                 </li>
                                 <!-- <li class="active open">
