@@ -11,6 +11,10 @@
 	
 	<link rel="stylesheet" href="<?= base_url('Assets/login-form-19/')?>css/style.css">
 
+	<!-- Sweetalert CDN -->
+	<script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 	</head>
 	<body>
 	<section class="ftco-section">
@@ -27,7 +31,7 @@
 		      	<h3 class="text-center mb-0">Sign Up</h3>
 		      	<p class="text-center">Isi dengan Benar dan Lengkap</p>
 
-				<form action="#" class="login-form">
+				<form action="<?= base_url('Login_c/SignUpAct')?>" class="login-form" method="post">
 
 					<span>Nama Lengkap</span>
 		      		<div class="form-group">
@@ -40,6 +44,7 @@
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-list-alt"></span></div>
 		      			<input type="text" class="form-control" placeholder="Nomor Induk Taruna" name="nit" required>
 		      		</div>
+					<?= form_error('nit', '<p class="text-danger pl-1">', '</p>');?>
 
 					<span>Tanggal Lahir</span>
 		      		<div class="form-group">
@@ -58,12 +63,14 @@
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-envelope-o"></span></div>
 		      			<input type="text" class="form-control" placeholder="Email" name="email" required>
 		      		</div>
+					<p><?= form_error('email', '<p class="text-danger pl-1">', '</p>');?></p>
 
 					<span>Password</span>
 					<div class="form-group">
 						<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
 						<input type="password" class="form-control" placeholder="Password" name="password" required>
 					</div>
+					<p><?= form_error('password', '<p class="text-danger pl-1">', '</p>');?></p>
 
 					<span>Tanggal Masuk</span>
 		      		<div class="form-group">
