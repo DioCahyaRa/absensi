@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Login 09</title>
+  	<title>Sign Up</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -25,21 +25,52 @@
 					<div class="login-wrap py-5">
 		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(<?= base_url('Assets/Image/Icon/icon_nahkoda.png')?>);"></div>
 		      	<h3 class="text-center mb-0">Sign Up</h3>
-		      	<p class="text-center">Sign up by entering the information below</p>
-						<form action="#" class="login-form">
+		      	<p class="text-center">Isi dengan Benar dan Lengkap</p>
+
+				<form action="#" class="login-form">
+
+					<span>Nama Lengkap</span>
 		      		<div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input type="text" class="form-control" placeholder="Username" required>
+		      			<input type="text" class="form-control" placeholder="Nama Lengkap" name="nama" required>
 		      		</div>
-	            <div class="form-group">
-	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-	              <input type="password" class="form-control" placeholder="Password" required>
-	            </div>
-	            <div class="form-group d-md-flex">
-								<!-- <div class="w-100 text-md-right">
-									<a href="#">Forgot Password</a>
-								</div> -->
-	            </div>
+
+					<span>Nomor Induk Taruna</span>
+		      		<div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-list-alt"></span></div>
+		      			<input type="text" class="form-control" placeholder="Nomor Induk Taruna" name="nit" required>
+		      		</div>
+
+					<span>Tanggal Lahir</span>
+		      		<div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-calendar"></span></div>
+		      			<input type="date" class="form-control" placeholder="Tanggal Lahir" name="tgl_lahir" required>
+		      		</div>
+
+					<span>Jabatan</span>
+		      		<div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-briefcase"></span></div>
+		      			<input type="text" class="form-control" placeholder="Jabatan" name="jabatan" required>
+		      		</div>
+
+					<span>Email</span>
+		      		<div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-envelope-o"></span></div>
+		      			<input type="text" class="form-control" placeholder="Email" name="email" required>
+		      		</div>
+
+					<span>Password</span>
+					<div class="form-group">
+						<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+						<input type="password" class="form-control" placeholder="Password" name="password" required>
+					</div>
+
+					<span>Tanggal Masuk</span>
+		      		<div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-calendar"></span></div>
+		      			<input type="date" class="form-control" placeholder="Tanggal Masuk" name="tgl_masuk" required>
+		      		</div>
+				
 	            <div class="form-group">
 	            	<button type="submit" class="btn form-control btn-primary rounded submit px-3">Sign Up</button>
 	            </div>
