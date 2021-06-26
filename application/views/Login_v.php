@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Login 09</title>
+  	<title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,8 +11,19 @@
 	
 	<link rel="stylesheet" href="<?= base_url('Assets/login-form-19/')?>css/style.css">
 
+	<!-- Sweetalert CDN-->
+	<script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 	</head>
 	<body>
+		<?php echo $this->session->flashdata('msg-succcess');?>
+     	<?php
+            if(isset($_SESSION['msg-succcess'])){
+                unset($_SESSION['msg-succcess']);
+            }
+        ?>
 	<section class="ftco-section">
 		<div class="container">
 			<!-- <div class="row justify-content-center">
