@@ -2,7 +2,11 @@
                 <article class="content item-editor-page">
                     <div class="title-block">
                         <h3 class="title"> Data Absensi & Create <span class="sparkline bar" data-type="bar"></span>
-                        <button class="btn btn-primary btn-oval" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-pencil"></i> ABSEN</button>
+                        <button class="btn btn-primary btn-oval" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-pencil"
+                            <?php if($absen_today):?>
+                                disabled
+                            <?php endif;?>
+                        ></i> ABSEN</button>
                         </h3>                        
                     </div>
 
@@ -16,6 +20,8 @@
                                 <th>NIT</th>
                                 <th>Jam Masuk</th>
                                 <th>Jam Keluar</th>
+                                <th>Tanggal</th>
+                                <th>Keterangan</th>
                                 <th>Status</th>
                                 <th>Selesai Bekerja</th>
                             </tr>
@@ -29,25 +35,17 @@
                                 <td><?= $no++?></td>
                                 <td><?= $data_u['nama'];?></td>
                                 <td><?= $data_u['nit'];?></td>
-                                <td><?=  $data_u['jam_masuk_format'];?></td>
-                                <td><?= $data_u['jam_keluar_format'];?></td>
+                                <td><?=  $data_u['jam_masuk'];?></td>
+                                <td><?= $data_u['jam_keluar'];?></td>
+                                <td><?= $data_u['tanggal'];?></td>
+                                <td><?= $data_u['keterangan'];?></td>
                                 <td><?= $data_u['status'];?></td>
                                 <td>
-                                <button class="btn btn-danger btn-oval" data-toggle="modal" data-target="#Modal-selesai<?= $data_u['id'];?>"><i class="fa fa-check-circle-o"></i> Selesai</button>
+                                <button class="btn btn-danger btn-oval" data-toggle="modal" data-target="#Modal-selesai<?= $data_u['id'];?>" <?php if($data_u['status'] == 'success'):?>disabled<?php endif;?>><i class="fa fa-check-circle-o"></i> Selesai</button>
                                 </td>
                             </tr>
                             <?php endforeach;?>
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
 
@@ -77,11 +75,21 @@
 
                                 <div class="form-group">
                                     <label for="name">Jam Masuk</label>
-                                    <input type="text" name="jam_masuk" class="form-control .btn::not" value="<?= date("Y-m-d H:i:s",now('Asia/Jakarta'))?>" readonly>
+                                    <input type="text" name="jam_masuk" class="form-control .btn::not" value="<?= date("H:i:s",now('Asia/Jakarta'))?>" readonly>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="name">Tanggal</label>
+                                    <input type="text" name="tanggal" class="form-control .btn::not" value="<?= date("Y-m-d",now('Asia/Jakarta'))?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Keterangan</label>
+                                    <input type="text" name="keterangan" class="form-control .btn::not" value="<?= $keterangan?>" readonly>
+                                </div>
+
+                                <button type="submit" class="btn btn-info btn-oval"><i class="fa fa-pencil" disabled <?php if($u['status'] == 'success'):?>disabled<?php endif;?> > </i>Create Absen</button>
                             <?php endforeach;?>
-                                <button type="submit" class="btn btn-info btn-oval"><i class="fa fa-pencil" <?php if($u['status'] == 'success'):?>disabled<?php endif;?> > </i>Create Absen</button>
                             </form>
 
                         </div>
@@ -102,8 +110,8 @@
 
                         <div class="d-flex main-content">
                         <div class="content-text p-4">
-                            <h3>Form Konfirmasi Absensi</h3>
-                            <p>Harap cek data terdahulu sebelum create absen!</p>
+                            <h3>Form Konfirmasi Selesai Bekerja</h3>
+                            <p>Harap cek data terdahulu sebelum Tekan Tombol Selesai Bekerja!</p>
 
                             <form action="<?= base_url('User/Absen_c/Selesai_Absen')?>" method="post">
                             <?php foreach($absensi_u as $data_u):?>
@@ -125,12 +133,22 @@
 
                                 <div class="form-group">
                                     <label for="name">Jam Masuk</label>
-                                    <input type="text" name="jam_masuk" class="form-control" value="<?= $data_u['jam_masuk_format'];?>" readonly>
+                                    <input type="text" name="jam_masuk" class="form-control" value="<?= $data_u['jam_masuk'];?>" readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="name">Jam Keluar</label>
-                                    <input type="text" name="jam_keluar" class="form-control" value="<?= date("Y-m-d H:i:s",now('Asia/Jakarta'))?>" readonly>
+                                    <input type="text" name="jam_keluar" class="form-control" value="<?= date("H:i:s",now('Asia/Jakarta'))?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Tanggal</label>
+                                    <input type="text" name="tanggal" class="form-control" value="<?= date("Y-m-d",now('Asia/Jakarta'))?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Keterangan</label>
+                                    <input type="text" name="keterangan" class="form-control" value="<?= $data_u['keterangan']?>" readonly>
                                 </div>
 
                             <?php endforeach;?>
