@@ -1,3 +1,9 @@
+                <?php echo $this->session->flashdata('msg-update');?>
+                <?php
+                    if(isset($_SESSION['msg-update'])){
+                        unset($_SESSION['msg-update']);
+                    }
+                ?>
                 <article class="content item-editor-page">
                     <div class="title-block">
                         <h3 class="title"> Profile User <span class="sparkline bar" data-type="bar"></span>
@@ -59,22 +65,68 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">Tanggal Masuk</h6>
-                                            </div>
-                                            <div class="col-sm-6 text-secondary">
-                                                : <?= $u['tgl_masuk']?>
-                                            </div>
-                                        </div>
                                     <?php endforeach;?>
                                         <br>
-                                    <button class="btn btn-success btn-oval"><i class="fa fa-pencil"></i> EDIT</button>
+                                    <button class="btn btn-success btn-oval" data-toggle="modal" data-target="#edit<?= $u['nit']?>"><i class="fa fa-pencil"></i> EDIT</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                <!-- Modal Edit Profile -->
+                <?php
+                    foreach ($user as $u):
+                ?>
+                <div class="modal fade" id="edit<?= $u['nit'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-md  modal-dialog-centered" role="document">
+                    <div class="modal-content rounded-0">
+                    <div class="modal-body py-0">
+
+                        <div class="d-flex main-content">
+                        <div class="content-text p-4">
+                            <h3>Form Edit Profile</h3>
+                            <p>sesuaikan data profile anda dengan tepat</p>
+
+                            <form action="<?= base_url('User/Profile_c/edit_profile')?>" method="post">
+                            <?php foreach($user as $u):?>
+                                
+                                <div class="form-group">
+                                    <label for="name">Nama</label>
+                                    <input type="text" name="nama" class="form-control" value="<?= $u['nama']?>">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Nomor Induk Taruna</label>
+                                    <input type="text" name="nit" class="form-control" value="<?= $u['nit']?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Tanggal Lahir</label>
+                                    <input type="date" name="tgl_lahir" class="form-control" value="<?= $u['tgl_lahir']?>">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Jabatan</label>
+                                    <input type="text" name="jabatan" class="form-control" value="<?= $u['jabatan'];?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Email</label>
+                                    <input type="text" name="email" class="form-control" value="<?= $u['email'];?>">
+                                </div>
+
+                            <?php endforeach;?>
+                                <button type="submit" class="btn btn-info btn-oval"><i class="fa fa-pencil"></i>Edit Profile</button>
+                            </form>
+
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <?php endforeach;?>
 
 
                 </article>
