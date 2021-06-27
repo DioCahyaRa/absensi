@@ -9,7 +9,11 @@ class Login_c extends CI_Controller {
     }
 
     public function index(){
-        $this->load->view('Login_v');
+        if($this->session->userdata('nit')){
+            redirect('User/Dashboard_c');
+        }else{
+            $this->load->view('Login_v');
+        }
     }
 
     public function SignUp(){
