@@ -12,6 +12,24 @@ class Absen_c extends CI_Controller {
 
     public function index(){
         $data['title'] = 'Absensi';
+        date_default_timezone_set('Asia/Jakarta'); // Defined City For Timezone
+        $time = (int)date('Hi',time());
+        if($time > 0600 && $time <= 1200){
+            $data['keterangan'] = "Jam Jaga 1";
+        }
+        if($time > 1200 && $time <= 1800){
+            $data['keterangan'] = "Jam Jaga 2";
+        }
+        if($time > 1800 && $time <= 2329){
+            $data['keterangan'] = "Jam Jaga 3";
+        }
+        if($time > 0000 && $time <= 0600){
+            $data['keterangan'] = "Jam Jaga 4";
+        }
+
+        $today = date('Y-m-d',time());
+        $data['absen_today'] = $this->User_m->absen_today($today);
+
         $data['absensi_u'] = $this->User_m->Absensi_user();
         $data['user'] = $this->User_m->User_profile();
         $this->load->view('User/Head_v',$data);
@@ -24,8 +42,9 @@ class Absen_c extends CI_Controller {
         $data_absen = [
             'nama' => $this->input->post('nama'),
             'nit' => $this->input->post('nit'),
-            'jam_masuk' => now('Asia/Jakarta'),
-            'jam_masuk_format' => date("Y-m-d H:i:s",now('Asia/Jakarta'))
+            'jam_masuk' => date("H:i",now('Asia/Jakarta')),
+            'tanggal' => date("Y-m-d",now('Asia/Jakarta')),
+            'keterangan' => $this->input->post('keterangan')
         ];
         $this->db->insert('absensi', $data_absen);
         redirect('User/Absen_c');
@@ -33,9 +52,10 @@ class Absen_c extends CI_Controller {
 
     public function Selesai_Absen(){
         date_default_timezone_set('Asia/Jakarta'); // Defined City For Timezone
+        
         $data_absen = [
-            'jam_keluar' => now('Asia/Jakarta'),
-            'jam_keluar_format' => date("Y-m-d H:i:s",now('Asia/Jakarta')),
+            'jam_keluar' => date("H:i",now('Asia/Jakarta')),
+            'tanggal' => date("Y-m-d",now('Asia/Jakarta')),
             'status' => 'success'
         ];
         $id = $this->input->post('id');
