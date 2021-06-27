@@ -1,4 +1,16 @@
-
+                <?php echo $this->session->flashdata('msg-update');?>
+                <?php
+                    if(isset($_SESSION['msg-update'])){
+                        unset($_SESSION['msg-update']);
+                    }
+                ?>
+                <?php echo $this->session->flashdata('msg-success');?>
+                <?php
+                    if(isset($_SESSION['msg-success'])){
+                        unset($_SESSION['msg-success']);
+                    }
+                ?>
+                
                 <article class="content item-editor-page">
                     <div class="title-block">
                         <h3 class="title"> Data Absensi & Create <span class="sparkline bar" data-type="bar"></span>
