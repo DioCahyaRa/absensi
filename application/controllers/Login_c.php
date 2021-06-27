@@ -37,7 +37,7 @@ class Login_c extends CI_Controller {
                 $data = [
                     'nit' => $nit,
                     'nama' => $user['nama'],
-                    'role' => $user['admin'],
+                    'role' => $user['role'],
                     'isLogged' => TRUE
                 ];
                 $this->session->set_userdata($data);
@@ -77,7 +77,7 @@ class Login_c extends CI_Controller {
                 'email' => $this->input->post('email'),
                 'password' => password_hash($this->input->post('password'),PASSWORD_DEFAULT),
                 'status' => 'active',
-                'role' => 'admin'
+                'role' => 'user'
             ];
             $this->db->insert('user', $data_create);
             $this->session->set_flashdata('msg-succcess','<script>Swal.fire("","SignUp Success","success")</script>');
