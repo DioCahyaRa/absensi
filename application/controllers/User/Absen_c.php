@@ -5,6 +5,7 @@ class Absen_c extends MY_Controller {
 
     public function __construct(){
         parent::__construct();
+        Access_User();
         $this->load->library('form_validation');
         $this->load->model('User_m');
         $this->load->helper('date');
