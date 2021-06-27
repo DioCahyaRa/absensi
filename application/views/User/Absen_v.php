@@ -2,11 +2,11 @@
                 <article class="content item-editor-page">
                     <div class="title-block">
                         <h3 class="title"> Data Absensi & Create <span class="sparkline bar" data-type="bar"></span>
-                        <button class="btn btn-primary btn-oval" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-pencil"
-                            <?php if($absen_today):?>
+                        <button class="btn btn-primary btn-oval" data-toggle="modal" data-target="#exampleModalCenter"
+                        <?php if($absen_today):?>
                                 disabled
                             <?php endif;?>
-                        ></i> ABSEN</button>
+                        ><i class="fa fa-pencil"></i> ABSEN</button>
                         </h3>                        
                     </div>
 
