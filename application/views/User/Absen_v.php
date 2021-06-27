@@ -2,7 +2,7 @@
                 <article class="content item-editor-page">
                     <div class="title-block">
                         <h3 class="title"> Data Absensi & Create <span class="sparkline bar" data-type="bar"></span>
-                        <button class="btn btn-primary btn-oval"><i class="fa fa-pencil"></i> ABSEN</button>
+                        <button class="btn btn-primary btn-oval" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-pencil"></i> ABSEN</button>
                         </h3>                        
                     </div>
 
@@ -11,63 +11,32 @@
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>NIT</th>
+                                <th>Jam Masuk</th>
+                                <th>Jam Keluar</th>
+                                <th>Status</th>
+                                <th>Selesai Bekerja</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php 
+                                $no=1; 
+                                foreach($absensi_u as $data_u):
+                            ?>
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                <td><?= $no++?></td>
+                                <td><?= $data_u['nama'];?></td>
+                                <td><?= $data_u['nit'];?></td>
+                                <td><?=  $data_u['jam_masuk_format'];?></td>
+                                <td><?= $data_u['jam_keluar_format'];?></td>
+                                <td><?= $data_u['status'];?></td>
+                                <td>
+                                <button class="btn btn-danger btn-oval" data-toggle="modal" data-target="#Modal-selesai<?= $data_u['id'];?>"><i class="fa fa-check-circle-o"></i> Selesai</button>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009/01/12</td>
-                                <td>$86,000</td>
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>22</td>
-                                <td>2012/03/29</td>
-                                <td>$433,060</td>
-                            </tr>
-                            <tr>
-                                <td>Airi Satou</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>33</td>
-                                <td>2008/11/28</td>
-                                <td>$162,700</td>
-                            </tr>
-                            <tr>
-                                <td>Brielle Williamson</td>
-                                <td>Integration Specialist</td>
-                                <td>New York</td>
-                                <td>61</td>
-                                <td>2012/12/02</td>
-                                <td>$372,000</td>
-                            </tr>
+                            <?php endforeach;?>
                         </tbody>
                         <tfoot>
                             <tr>
@@ -81,4 +50,99 @@
                         </tfoot>
                     </table>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-md  modal-dialog-centered" role="document">
+                    <div class="modal-content rounded-0">
+                    <div class="modal-body py-0">
+
+                        <div class="d-flex main-content">
+                        <div class="content-text p-4">
+                            <h3>Form Konfirmasi Absensi</h3>
+                            <p>Harap cek data terdahulu sebelum create absen!</p>
+
+                            <form action="<?= base_url('User/Absen_c/Create_absen')?>" method="post">
+                            <?php foreach($user as $u):?>
+
+                                <div class="form-group">
+                                    <label for="name">Nama</label>
+                                    <input type="text" name="nama" class="form-control" value="<?= $u['nama']?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">NIT</label>
+                                    <input type="text" name="nit" class="form-control" value="<?= $u['nit']?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Jam Masuk</label>
+                                    <input type="text" name="jam_masuk" class="form-control .btn::not" value="<?= date("Y-m-d H:i:s",now('Asia/Jakarta'))?>" readonly>
+                                </div>
+
+                            <?php endforeach;?>
+                                <button type="submit" class="btn btn-info btn-oval"><i class="fa fa-pencil" <?php if($u['status'] == 'success'):?>disabled<?php endif;?> > </i>Create Absen</button>
+                            </form>
+
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Modal Button Selesai -->
+                <?php
+                    foreach ($absensi_u as $data_u):
+                ?>
+                <div class="modal fade" id="Modal-selesai<?= $data_u['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-md  modal-dialog-centered" role="document">
+                    <div class="modal-content rounded-0">
+                    <div class="modal-body py-0">
+
+                        <div class="d-flex main-content">
+                        <div class="content-text p-4">
+                            <h3>Form Konfirmasi Absensi</h3>
+                            <p>Harap cek data terdahulu sebelum create absen!</p>
+
+                            <form action="<?= base_url('User/Absen_c/Selesai_Absen')?>" method="post">
+                            <?php foreach($absensi_u as $data_u):?>
+                                
+                                <div class="form-group">
+                                    <label for="name">ID Absen</label>
+                                    <input type="text" name="id" class="form-control" value="<?= $data_u['id']?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Nama</label>
+                                    <input type="text" name="nama" class="form-control" value="<?= $data_u['nama']?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">NIT</label>
+                                    <input type="text" name="nit" class="form-control" value="<?= $data_u['nit']?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Jam Masuk</label>
+                                    <input type="text" name="jam_masuk" class="form-control" value="<?= $data_u['jam_masuk_format'];?>" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">Jam Keluar</label>
+                                    <input type="text" name="jam_keluar" class="form-control" value="<?= date("Y-m-d H:i:s",now('Asia/Jakarta'))?>" readonly>
+                                </div>
+
+                            <?php endforeach;?>
+                                <button type="submit" class="btn btn-info btn-oval"><i class="fa fa-pencil"></i>Selesai Bekerja</button>
+                            </form>
+
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <?php endforeach;?>
+
                 </article>
