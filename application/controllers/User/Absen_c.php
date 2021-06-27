@@ -47,6 +47,7 @@ class Absen_c extends MY_Controller {
             'keterangan' => $this->input->post('keterangan')
         ];
         $this->db->insert('absensi', $data_absen);
+        $this->session->set_flashdata('msg-success','<script>Swal.fire("Success Absen","Semangat Bekerja","success")</script>');
         redirect('User/Absen_c');
     }
 
@@ -61,6 +62,7 @@ class Absen_c extends MY_Controller {
         $id = $this->input->post('id');
         $this->db->where('id', $id);
         $this->db->update('absensi',$data_absen);
+        $this->session->set_flashdata('msg-update','<script>Swal.fire("","Anda telah menyelesaikan pekerjaan","success")</script>');
         redirect('User/Absen_c');
     }
 }
