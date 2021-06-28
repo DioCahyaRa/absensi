@@ -54,8 +54,15 @@
 
 					<span>Jabatan</span>
 		      		<div class="form-group">
-		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-briefcase"></span></div>
-		      			<input type="text" class="form-control" placeholder="Jabatan" name="jabatan" required>
+					  <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-briefcase"></span></div>
+                        <select class="form-control" name="jabatan">
+                            <option value="" selected disabled>- Pilih Jabatan -</option>
+                            <?php 
+                                foreach ($jabatan as $data):
+                            ?>
+                                <option value="<?= $data['nama_jabatan'] ?>"><?= $data['nama_jabatan'] ?></option>
+                            <?php endforeach;?>
+                        </select>
 		      		</div>
 
 					<span>Email</span>
