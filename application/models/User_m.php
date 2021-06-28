@@ -23,5 +23,8 @@
             $this->db->where('tanggal <=', $sampai_tanggal);
             return $this->db->get('absensi')->result_array();
         }
+        public function to_pdf_user(){
+            return $this->db->get('user')->result_array();
+        }
     }
 ?>
