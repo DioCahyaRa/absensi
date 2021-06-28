@@ -6,7 +6,6 @@ class Data_absensi extends MY_Controller {
     public function __construct(){
         parent::__construct();
         Access_Admin();
-        $this->load->library('form_validation');
         $this->load->model('User_m');
     }
 
