@@ -29,7 +29,7 @@ class Absen_c extends MY_Controller {
         }
 
         $today = date('Y-m-d',time());
-        $data['absen_today'] = $this->User_m->absen_today($today);
+        $data['absen_today'] = $this->User_m->Absen_today($today);
 
         $data['absensi_u'] = $this->User_m->Absensi_user();
         $data['user'] = $this->User_m->User_profile();
@@ -57,7 +57,6 @@ class Absen_c extends MY_Controller {
         
         $data_absen = [
             'jam_keluar' => date("H:i",now('Asia/Jakarta')),
-            'tanggal' => date("Y-m-d",now('Asia/Jakarta')),
             'status' => 'success'
         ];
         $id = $this->input->post('id');
