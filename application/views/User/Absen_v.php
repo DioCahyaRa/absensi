@@ -100,7 +100,7 @@
                                     <input type="text" name="keterangan" class="form-control .btn::not" value="<?= $keterangan?>" readonly>
                                 </div>
 
-                                <button type="submit" class="btn btn-info btn-oval"><i class="fa fa-pencil" disabled <?php if($u['status'] == 'success'):?>disabled<?php endif;?> > </i>Create Absen</button>
+                                <button type="submit" class="btn btn-info btn-oval"><i class="fa fa-pencil" <?php if($u['status'] == 'success'):?>disabled<?php endif;?> > </i>Create Absen</button>
                             <?php endforeach;?>
                             </form>
 

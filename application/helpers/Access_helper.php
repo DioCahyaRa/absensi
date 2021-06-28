@@ -7,4 +7,11 @@ function Access_User(){
     }
 }
 
+function Access_Admin(){
+    $ci = get_instance();
+    if($ci->session->userdata('role') != "admin") {
+        redirect('User/Dashboard_c');
+    }
+}
+
 ?>

@@ -56,10 +56,6 @@
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <a class="dropdown-item" href="<?= base_url('User/Profile_c');?>">
                                         <i class="fa fa-user icon"></i> Profile </a>
-                                    <!-- <a class="dropdown-item" href="#">
-                                        <i class="fa fa-bell icon"></i> Notifications </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-gear icon"></i> Settings </a> -->
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="<?= base_url('Login_c/Logout');?>">
                                         <i class="fa fa-power-off icon"></i> Logout </a>
@@ -83,10 +79,24 @@
                                     <a href="<?= base_url('User/Dashboard_c');?>">
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
-                                <li <?php if($title == 'Absensi'):?>class="active"<?php endif;?>>
+                                <li <?php if($title == 'Absensi'):?>class="active"<?php endif;?> 
+                                    <?php if($this->session->userdata('role') != 'user'):?>
+                                        hidden
+                                    <?php endif;?>
+                                    >
                                     <a href="<?= base_url('User/Absen_c');?>">
                                         <i class="fa fa-pencil-square-o"></i> Absen </a>
                                 </li>
+
+                                <li <?php if($title == 'Data Absensi'):?>class="active"<?php endif;?> 
+                                    <?php if($this->session->userdata('role') != 'admin'):?>
+                                        hidden
+                                    <?php endif;?>
+                                    >
+                                    <a href="<?= base_url('Admin/Data_absensi');?>">
+                                        <i class="fa fa-file-text-o"></i> Data Absensi </a>
+                                </li>
+
                                 <li <?php if($title == 'Profile'):?>class="active"<?php endif;?>>
                                     <a href="<?= base_url('User/Profile_c');?>">
                                         <i class="fa fa-user"></i> Profil </a>
