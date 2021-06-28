@@ -97,6 +97,15 @@
                                         <i class="fa fa-file-text-o"></i> Data Absensi </a>
                                 </li>
 
+                                <li <?php if($title == 'Data Users'):?>class="active"<?php endif;?> 
+                                    <?php if($this->session->userdata('role') != 'admin'):?>
+                                        hidden
+                                    <?php endif;?>
+                                    >
+                                    <a href="<?= base_url('Admin/Data_users');?>">
+                                        <i class="fa fa-file-text-o"></i> Data Users </a>
+                                </li>
+
                                 <li <?php if($title == 'Profile'):?>class="active"<?php endif;?>>
                                     <a href="<?= base_url('User/Profile_c');?>">
                                         <i class="fa fa-user"></i> Profil </a>
