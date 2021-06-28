@@ -13,10 +13,9 @@
         }
 
         public function Absen_today($today){
-            return $this->db->get_where('absensi',[
-                'nit'=>$_SESSION['nit'],
-                'tanggal'=>$today
-            ])->result_array();
+            $this->db->where('tanggal',$today);
+            $this->db->where('nit',$_SESSION['nit']);
+            return $this->db->get('absensi')->result_array();
         }
 
         public function to_pdf($per_tanggal,$sampai_tanggal){
