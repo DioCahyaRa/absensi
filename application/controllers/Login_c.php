@@ -17,7 +17,8 @@ class Login_c extends CI_Controller {
     }
 
     public function SignUp(){
-        $this->load->view('Signup_v');
+        $data['jabatan'] = $this->db->get('jabatan')->result_array();
+        $this->load->view('Signup_v',$data);
     }
 
     public function Act_Login(){
