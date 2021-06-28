@@ -54,8 +54,8 @@
 
                             <div class="d-flex main-content">
                             <div class="content-text p-4">
-                                <h3>Form Konfirmasi Absensi</h3>
-                                <p>Harap cek data terdahulu sebelum create absen!</p>
+                                <h3>Form Konfirmasi export data Absensi to PDF</h3>
+                                <p>Harap Masukan tanggal sesuai kebutuhan</p>
 
                                 <form action="<?= base_url('Admin/Data_absensi/laporan_pdf')?>" method="post">
                                     <div class="form-group">
