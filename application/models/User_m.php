@@ -26,5 +26,40 @@
         public function to_pdf_user(){
             return $this->db->get('user')->result_array();
         }
+
+        public function count_admin(){
+            $this->db->count_all_results('user');
+            $this->db->where('role','admin');
+            $this->db->from('user');
+            return $this->db->count_all_results();
+        }
+
+        public function count_user(){
+            $this->db->count_all_results('user');
+            $this->db->where('role','user');
+            $this->db->from('user');
+            return $this->db->count_all_results();
+        }
+
+        public function count_jabatan(){
+            $this->db->count_all_results('jabatan');
+            $this->db->from('jabatan');
+            return $this->db->count_all_results();
+        }
+
+        public function count_absensi(){
+            $this->db->count_all_results('absensi');
+            $this->db->where('status','success');
+            $this->db->from('absensi');
+            return $this->db->count_all_results();
+        }
+
+        public function count_absensi_user($session){
+            $this->db->count_all_results('absensi');
+            $this->db->where('status','success');
+            $this->db->where('nit',$session['nit']);
+            $this->db->from('absensi');
+            return $this->db->count_all_results();
+        }
     }
 ?>

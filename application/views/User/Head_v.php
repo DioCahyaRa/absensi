@@ -103,7 +103,16 @@
                                     <?php endif;?>
                                     >
                                     <a href="<?= base_url('Admin/Data_users');?>">
-                                        <i class="fa fa-file-text-o"></i> Data Users </a>
+                                        <i class="fa fa-group"></i> Data Users </a>
+                                </li>
+
+                                <li <?php if($title == 'Data Jabatan'):?>class="active"<?php endif;?> 
+                                    <?php if($this->session->userdata('role') != 'admin'):?>
+                                        hidden
+                                    <?php endif;?>
+                                    >
+                                    <a href="<?= base_url('Admin/Data_jabatan');?>">
+                                        <i class="fa fa-briefcase"></i> Data Jabatan </a>
                                 </li>
 
                                 <li <?php if($title == 'Profile'):?>class="active"<?php endif;?>>
