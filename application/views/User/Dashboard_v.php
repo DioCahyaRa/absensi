@@ -93,7 +93,11 @@
                     </div>
                     
                     <?php if($_SESSION['role'] == 'user'):?>
-                        <h3 style="color:blue; margin-top:50px;font-style:italic;"><i class="fa fa-pencil-square-o"></i>  Langkah - langkah Abensi masuk Kerja</h3>
+                        <!-- <div class="row"> -->
+                            <div class="col-md-12 bg-danger">
+                                <h3 style="color:white;padding:3px 0px 3px 0px;margin-top:50px;font-style:italic;"><i class="fa fa-pencil-square-o"></i>  Langkah - langkah Abensi masuk Kerja</h3>
+                             </div>
+                        <!-- </div> -->
                     <div class="row">
                         <div class="col-xl-3">
                             <div class="card card-primary text-center">
@@ -162,7 +166,10 @@
                     </div>
 
                     <?php if($_SESSION['role'] == 'user'):?>
-                        <h3 style="color:blue; margin-top:50px;font-style:italic;"><i class="fa fa-check-square-o"></i> Langkah - langkah Selesai Kerja</h3>
+                            <div class="col-md-12 bg-danger">
+                            <h3 style="color:white; margin-top:50px;font-style:italic;"><i class="fa fa-check-square-o"></i> Langkah - langkah Selesai Kerja</h3>
+                             </div>
+
                     <div class="row">
                         <div class="col-xl-3">
                             <div class="card card-primary text-center">
