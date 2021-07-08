@@ -12,7 +12,7 @@
   
   <section>
     <h1>Data Absensi Taruna</h1>
-    <p>Per Tanggal <?= $per_tanggal?> Sampai dengan Tanggal <?= $per_tanggal?></p>
+    <p>Per Tanggal <?= $per_tanggal?> Sampai dengan Tanggal <?= $sampai_tanggal?></p>
 
     <table class="table table-bordered">
         <thead>

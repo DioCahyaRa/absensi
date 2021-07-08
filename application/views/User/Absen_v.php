@@ -54,6 +54,7 @@
                                 <td><?= $data_u['status'];?></td>
                                 <td>
                                 <button class="btn btn-danger btn-oval" data-toggle="modal" data-target="#Modal-selesai<?= $data_u['id'];?>" <?php if($data_u['status'] == 'success'):?>disabled<?php endif;?>><i class="fa fa-check-circle-o"></i> Selesai</button>
+                                
                                 </td>
                             </tr>
                             <?php endforeach;?>
@@ -126,7 +127,6 @@
                             <p>Harap cek data terdahulu sebelum Tekan Tombol Selesai Bekerja!</p>
 
                             <form action="<?= base_url('User/Absen_c/Selesai_Absen')?>" method="post">
-                            <?php foreach($absensi_u as $data_u):?>
                                 
                                 <div class="form-group">
                                     <label for="name">ID Absen</label>
@@ -163,7 +163,6 @@
                                     <input type="text" name="keterangan" class="form-control" value="<?= $data_u['keterangan']?>" readonly>
                                 </div>
 
-                            <?php endforeach;?>
                                 <button type="submit" class="btn btn-info btn-oval"><i class="fa fa-pencil"></i>Selesai Bekerja</button>
                             </form>
 
