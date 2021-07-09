@@ -15,9 +15,15 @@
                     <div class="title-block">
                         <h3 class="title"> Data Absensi & Create <span class="sparkline bar" data-type="bar"></span>
                         <button class="btn btn-primary btn-oval" data-toggle="modal" data-target="#exampleModalCenter"
-                        <?php if($absen_today):?>
+                        
+                            <?php if($absen_today >= 2):?>
                                 disabled
                             <?php endif;?>
+                            <?php foreach($cek_1 as $now):?>
+                                <?php if($now['keterangan'] == $keterangan):?>
+                                disabled
+                                <?php endif;?>
+                            <?php endforeach;?>
                         ><i class="fa fa-pencil"></i> ABSEN</button>
                         </h3>                        
                     </div>
