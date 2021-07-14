@@ -33,8 +33,6 @@ class Absen_c extends MY_Controller {
         $data['absensi_u'] = $this->User_m->Absensi_user();
         $data['cek_1'] = $this->db->get_where('absensi',['nit'=>$_SESSION['nit'],'tanggal'=> $today])->result_array();
        
-        
-
         $data['user'] = $this->User_m->User_profile();
         $this->load->view('User/Head_v',$data);
         $this->load->view('User/Absen_v');
