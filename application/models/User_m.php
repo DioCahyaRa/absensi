@@ -7,6 +7,7 @@
 
         public function Absensi_user(){
             $this->db->select('*');
+            $this->db->order_by('id','DESC');
             $this->db->from('absensi');
             $this->db->where('nit',$_SESSION['nit']);
             return $this->db->get()->result_array();
